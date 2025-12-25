@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { apiRequest } from "@/lib/api";
 import { login } from "@/lib/auth";
+import useRedirectIfAuth from "@/lib/useRedirectIfAuth";
 
 export default function LoginPage() {
+  useRedirectIfAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

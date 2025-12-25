@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { apiRequest } from "@/lib/api";
 import { login } from "@/lib/auth";
+import useRedirectIfAuth from "@/lib/useRedirectIfAuth";
 
 export default function RegisterPage() {
+  useRedirectIfAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +36,6 @@ export default function RegisterPage() {
       setLoading(false);
     }
   };
-
   return (
     <div className="flex min-h-screen items-center justify-center">
       <form
